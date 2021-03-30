@@ -1,0 +1,21 @@
+<h4>Flopchooser</h4>
+
+<div style="margin-bottom:2rem">
+  <p>Which movie has a lower IMDB rating?</p>
+  <!-- <p>Correct or Incorrect Message Here! (how can you show or hide an element?</p> -->
+  <p [hidden]="!isChosen">
+    <span [hidden]="!isCorrect" >Correct</span>
+
+    <span [hidden]="isCorrect" >Incorrect</span>
+  </p>
+  <!-- <p *ngIf="isChosen">{{isCorrect}}</p> -->
+  <button class="btn btn-primary" (click)="selectNewFlops()"  [hidden]="!isChosen" >Play Again</button>
+</div>
+
+
+
+<div style="display:flex; justify-content:space-around">
+  <app-movie-selector (select)="onFirstSelected()" [movie]="flops.first"></app-movie-selector>
+  <app-movie-selector (select)="onSecondSelected()" [movie]="flops.second"></app-movie-selector>
+
+</div>
